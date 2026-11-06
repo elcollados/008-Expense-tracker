@@ -7,7 +7,8 @@
     --primary: #104db0;
     --primary-dark: #0854f7;
     --muted: #94a3b8;
-    --danger: #fca5a5;
+    --danger: #f18c8c;
+    --money: rgb(242, 211, 131);
 }
 
 * {
@@ -26,8 +27,8 @@ body {
 
 h2 {
     font-size: 40px;
-    color: goldenrod;
-    border: 1px solid rgba(255, 225, 0, .3);
+    color: var(--text);
+    border: 1px solid rgba(214, 223, 239, .2);
     padding: 15px;
     width: 100%;
     max-width: 800px;
@@ -38,11 +39,11 @@ h2 {
 
 #total {
     font-size: 40px;
-    color: goldenrod;
+    color: var(--money);
 }
 
 #listtotal {
-    color: goldenrod;
+    color: var(--money);
 }
 
 .a {
@@ -55,7 +56,7 @@ h2 {
     margin: 0;
 }
 
-.aa, .ab, #presets, .ac, .ad, .aba{
+.aa, .ab, #presets, .ac, .ad, .aba, .budgetlimit {
     display: flex;
     flex-wrap: wrap;
     padding: 5px;
@@ -72,7 +73,9 @@ h2 {
     min-width: 100%;
 }
 
-.aa input, .aa select, .ab input, .ab button, #presets button, .ac button,.ac p, .ad p, .aba button, .aba select, .aaa button {
+.aa input, .aa select, .ab input, .ab button, #presets button,
+ .ac button,.ac p, .ad p, .aba button, .aba select, .aaa button,
+ .budgetlimit input, .budgetlimit p {
     flex: 1;
 }
 
@@ -105,7 +108,7 @@ input, select {
 
 p {
     text-align: left;
-    color: #8d949f;
+    color: var(--text);
     background: #141d2b;
     border-bottom:1px solid #1c3c81;
 }
@@ -153,7 +156,6 @@ button:hover {
     max-width: 550px;
 }
 
-
 #list li input, #list li select, #list li button{
     flex: 1;
     width: 100%;
@@ -163,3 +165,8 @@ button:hover {
     background: var(--primary);
 }
 
+
+#total.over, #budgetmsg.over, #listtotal.over {
+    color: var(--danger);
+    border: var(--danger);
+}

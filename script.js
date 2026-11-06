@@ -21,12 +21,16 @@ const undoBtn = document.getElementById("undobtn");
 const clearListBtn = document.getElementById("clearlist");
 const clearInputBtn = document.getElementById("clearinput");
 
+const budgetInput = document.getElementById("budget");
+const budgetMsg = document.getElementById("budgetmsg");
+
 let expenses = [];
 let editingId = null;
 let searchText = "";
 let filterCategory = "All";
 let sortMode = "none";
 let lastDelete = null;
+let budgetLimit = null;
 
 
 const presets = [
@@ -34,6 +38,23 @@ const presets = [
     {what: "Bus", cost: 1000, category: "Transport"},
     {what: "Water", cost: 2000, category: "Bills"}
 ];
+
+const categories = ["Food", "Transport", "Bills"];
+
+function fillSelect(select, names) {
+    select.innerHTML = "";
+    for (let i = 0; i < names.length; i++) {
+        const option = document.createElement("option");
+        option.value = names[i];
+        option.textContent = names[i];
+        select.appendChild(option);
+    }
+}
+
+function renderCategories() {
+    fillSelect(categorySelect, categories);
+    fillSelect(filter, ["All"].concat(categories));
+}
 
 
 function formatMoney(n) {
@@ -46,6 +67,26 @@ function parseCost(num) {
     const cost = Number(trimmed);
     if (!Number.isFinite(cost) || cost < 0) return null;
     return cost;
+}
+
+function getBudgetMessage(total) {
+    if (budgetLimit === null) {
+        return "";
+    }
+    if (total > budgetLimit) {
+        return "Over budget by " + formatMoney(total - budgetLimit);
+    }
+    return "Left: " + formatMoney(budgetLimit - total);
+}
+
+function updateBudget() {
+    const total = getTotal(expenses);
+    const isOver = budgetLimit !== null && total > budgetLimit;
+
+    totalText.classList.toggle("over", isOver);
+    budgetMsg.textContent = getBudgetMessage(total);
+    budgetMsg.classList.toggle("over", isOver);
+    listedTotal.classList.toggle("over", isOver);
 }
 
 function getTotal(arr) {
@@ -180,7 +221,7 @@ function createItem(exp) {
         return createEditItem(exp);
     }
     const li = document.createElement("li");
-
+   
     const item = document.createElement("span");
     item.textContent = exp.what + " - " + formatMoney(exp.cost) + " (" + exp.category + ") " + formatDate(exp.date);
     
@@ -318,17 +359,28 @@ function saveAndRender() {
     render();
 }
 
+function showEmptyMessage() {
+    const li = document.createElement("li");
+    li.textContent = "No expenses yet";
+    list.appendChild(li);
+}
+
 function render() {
     pricyText.textContent = "";
     list.innerHTML = "";
 
     const visible = getVisible();
+    if (visible.length === 0) {
+        showEmptyMessage();
+    }
+
     for ( let i = 0; i < visible.length; i++ ) {
         list.appendChild(createItem(visible[i]));
     }
     totalText.textContent = formatMoney(getTotal(expenses));
     showListedInfo(visible);
     updateSortButtons();
+    updateBudget();
 }
 
 function clearForm() {
@@ -423,6 +475,12 @@ clearListBtn.addEventListener("click", function(){
 
 clearInputBtn.addEventListener("click", clearForm);
 
+budgetInput.addEventListener("input", function() {
+    budgetLimit = parseCost(budgetInput.value);
+    render();
+});
+
+renderCategories();
 renderPreset();
 loadExpenses();
 render();

@@ -11,13 +11,17 @@
     <h2>Total: <span id="total">₱0.00</span></h2>
 
     <div class="a">
+
+        <div class="budgetlimit">
+        <input id="budget" placeholder="Budget limit">
+        <p id="budgetmsg"></p>
+
+        </div>
+
         <div class="aa">
             <input id="what" type="text" placeholder="What for">
             <input id="cost" type="number" placeholder="Cost">
             <select id="category">
-                <option>Food</option>
-                <option>Transport</option>
-                <option>Bills</option>
             </select>
 
             <div class="aaa">
@@ -35,7 +39,7 @@
 
         <div class="ad">
             <p>Shown items : <span id="numlist">0</span></p>
-            <p>Shown total : <span id="listtotal">₱0.00</span></p>
+            <p class="shown">Shown total : <span id="listtotal">₱0.00</span></p>
         </div>
 
         <div class="ab">
@@ -49,10 +53,6 @@
         <div class="aba">
             <button id="clearlist">Delete All</button>
             <select id="filter">
-                <option>All</option>
-                <option>Food</option>
-                <option>Transport</option>
-                <option>Bills</option>
             </select>
         </div>
 
