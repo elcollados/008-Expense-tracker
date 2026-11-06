@@ -119,48 +119,44 @@ button:hover {
     border: 1px solid var(--primary-dark);
 }
 
+.lists {
+    width: 100%;
+}
+
 #list {
-    display: flex;
-    flex-wrap: wrap;
     list-style: none;
     padding: 0;
     margin: 0;
-    min-width: 100%;
     align-items: center;
+    width: 100%;
 }
 
 #list li {
     display: flex;
-    flex-wrap: wrap;
     padding: 8px;
-    width: 100%;
-    background-color: var(--card);
     margin-top: 5px;
-    text-align: center;
     font-size: 20px;
+    background-color: var(--card);
     border: 1px solid var(--border);
     border-radius: 8px;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 #list li span{
     padding: 8px;
     background: #141d2b;
-    flex: 1;
     border:.5px solid #152e63;
     border-radius: 8px;
+    width: 100%;
+    max-width: 550px;
 }
 
 
-#list li button {
+#list li input, #list li select, #list li button{
     flex: 1;
-    max-width: 18%;
-}
-
-
-#list li input, #list li select {
-    flex: 1;
+    width: 100%;
 }
 
 .active {
