@@ -1,0 +1,169 @@
+:root {
+    --bg: #0b1220;
+    --card: #131c2e;
+    --surface: #1e2540;
+    --border: #243049;
+    --text: #d6dfef;
+    --primary: #104db0;
+    --primary-dark: #0854f7;
+    --muted: #94a3b8;
+    --danger: #fca5a5;
+}
+
+* {
+    font-family: system-ui, Arial, sans-serif;
+    color: var(--text);
+    box-sizing:  border-box;
+}
+
+body {
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 40px;
+    color: goldenrod;
+    border: 1px solid rgba(255, 225, 0, .3);
+    padding: 15px;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 0;
+}
+
+#total {
+    font-size: 40px;
+    color: goldenrod;
+}
+
+#listtotal {
+    color: goldenrod;
+}
+
+.a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0;
+}
+
+.aa, .ab, #presets, .ac, .ad, .aba{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    min-width: 100%;
+    margin-top: 5px;
+}
+
+.aaa {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 100%;
+}
+
+.aa input, .aa select, .ab input, .ab button, #presets button, .ac button,.ac p, .ad p, .aba button, .aba select, .aaa button {
+    flex: 1;
+}
+
+#addbtn {
+    background: var(--primary);
+} 
+
+#addbtn:hover {
+    background: var(--primary-dark);
+    border: 1px solid var(--border);
+}
+
+input, button, select, p {
+    padding: 8px;
+    font-size: 20px;
+    width: 100%;
+    outline: none;
+    color: var(--text);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 2px;
+    text-align: center;
+}
+
+input, select {
+    background-color: #1e2f54;
+}
+
+
+p {
+    text-align: left;
+    color: #8d949f;
+    background: #141d2b;
+    border-bottom:1px solid #1c3c81;
+}
+
+
+input:focus, select:focus {
+    border: 1px solid var(--primary-dark);
+}
+
+button:hover {
+    border: 1px solid var(--primary-dark);
+}
+
+#list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 100%;
+    align-items: center;
+}
+
+#list li {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px;
+    width: 100%;
+    background-color: var(--card);
+    margin-top: 5px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+#list li span{
+    padding: 8px;
+    background: #141d2b;
+    flex: 1;
+    border:.5px solid #152e63;
+    border-radius: 8px;
+}
+
+
+#list li button {
+    flex: 1;
+    max-width: 18%;
+}
+
+
+#list li input, #list li select {
+    flex: 1;
+}
+
+.active {
+    background: var(--primary);
+}
+

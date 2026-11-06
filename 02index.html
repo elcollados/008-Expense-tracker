@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Expense tracker</title>
+        <link rel="stylesheet" href="02style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+<body>
+    <h1>Expense tracker</h1>
+    <h2>Total: <span id="total">₱0.00</span></h2>
+
+    <div class="a">
+        <div class="aa">
+            <input id="what" type="text" placeholder="What for">
+            <input id="cost" type="number" placeholder="Cost">
+            <select id="category">
+                <option>Food</option>
+                <option>Transport</option>
+                <option>Bills</option>
+            </select>
+
+            <div class="aaa">
+                <button id="clearinput">Clear input</button>
+                <button class="addbtn" id="addbtn">Add expense</button>
+            </div>
+        </div>
+
+        <div id="presets"></div>
+
+        <div class="ac">
+            <button id="pricybtn">Highest priced item</button>
+            <p>Highest: <span id="pricy"></span></p>
+        </div>
+
+        <div class="ad">
+            <p>Shown items : <span id="numlist">0</span></p>
+            <p>Shown total : <span id="listtotal">₱0.00</span></p>
+        </div>
+
+        <div class="ab">
+            <button id="sortl">Low to high</button>
+            <button id="sorth">High to low</button>
+            <button id="old">Oldest</button>
+            <input id="search" type="text" placeholder="Search">
+        
+        </div>
+
+        <div class="aba">
+            <button id="clearlist">Delete All</button>
+            <select id="filter">
+                <option>All</option>
+                <option>Food</option>
+                <option>Transport</option>
+                <option>Bills</option>
+            </select>
+        </div>
+
+        <div class="aa">
+            <button id="undobtn" hidden>Undo delete</button>
+        </div>
+
+        <div class="lists">
+            <ul id="list"></ul>
+        </div>
+
+    </div>
+
+    <script src="02script.js"></script>
+</body>
+</html>
